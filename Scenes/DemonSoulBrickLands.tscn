@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/Doggo.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/PlayerSpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://Common/Player.gd" type="Script" id=3]
-[ext_resource path="res://Common/Barrel.gd" type="Script" id=4]
+[ext_resource path="res://Common/AK47.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Common/Doggo.gd" type="Script" id=5]
 [ext_resource path="res://Worlds/StarterMap.tscn" type="PackedScene" id=6]
 
@@ -99,7 +99,11 @@ extents = Vector2( 10, 16 )
 [node name="StarterMap" parent="." instance=ExtResource( 6 )]
 
 [node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 608, 416 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 10 )
@@ -110,12 +114,10 @@ playing = true
 position = Vector2( 0, 4 )
 shape = SubResource( 11 )
 
-[node name="Barrel" type="Node2D" parent="Player"]
-script = ExtResource( 4 )
-radius = 20.0
+[node name="AK47" parent="Player" instance=ExtResource( 4 )]
 
 [node name="Doggo" type="KinematicBody2D" parent="."]
-position = Vector2( 360, 624 )
+position = Vector2( 88, 560 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
@@ -125,7 +127,6 @@ __meta__ = {
 scale = Vector2( 2, 2 )
 frames = SubResource( 18 )
 animation = "Sit"
-frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doggo"]

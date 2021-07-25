@@ -2,8 +2,9 @@ extends Area2D
 
 export(float) var SPEED = 1000
 var direction = Vector2.RIGHT
+var angle = 0
 
-onready var velocity = direction.normalized() * SPEED
+onready var velocity = direction.normalized().rotated(angle) * SPEED
 
 func _physics_process(delta):
 	position += velocity * delta
