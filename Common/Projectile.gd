@@ -8,9 +8,12 @@ onready var velocity = direction.normalized() * SPEED
 func _physics_process(delta):
 	position += velocity * delta
 
-	if get_overlapping_bodies():
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.has_method("hit_by_projectile"):
+			body.hit_by_projectile()
+	if bodies:
 		queue_free()
-
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()

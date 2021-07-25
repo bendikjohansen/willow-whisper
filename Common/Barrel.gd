@@ -2,14 +2,17 @@ extends Node2D
 
 onready var initial_position = position
 export(float) var radius = 15
+var previous_aim_position = Vector2.ZERO
 
 export(PackedScene) var Projectile = preload("res://Common/Projectile.tscn")
 
+func _process(delta):
+	var parent_position = get_parent().global_position
+	position = initial_position.move_toward(previous_aim_position - parent_position, radius)
+
 func _input(event):
 	if event is InputEventMouseMotion:
-		var mouse_position = event.global_position
-		var parent_position = get_parent().global_position
-		position = initial_position.move_toward(mouse_position - parent_position, radius)
+		previous_aim_position = event.global_position
 	elif event.is_action_pressed("shoot"):
 		var projectile = Projectile.instance()
 		projectile.global_position = global_position
