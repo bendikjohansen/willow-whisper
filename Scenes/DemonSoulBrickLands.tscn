@@ -1,167 +1,32 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/Doggo.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Player.png" type="Texture" id=2]
+[ext_resource path="res://Common/Characters/Doggo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Common/Characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Common/Characters/Player.gd" type="Script" id=3]
 [ext_resource path="res://Common/Weapons/AK47.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Common/Characters/Doggo.gd" type="Script" id=5]
 [ext_resource path="res://Rooms/DemonSoulBrickRoom_1.tscn" type="PackedScene" id=6]
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 2 )
-region = Rect2( 832, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 2 )
-region = Rect2( 512, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 2 )
-region = Rect2( 576, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 2 )
-region = Rect2( 640, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 2 )
-region = Rect2( 704, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 2 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 2 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 2 )
-region = Rect2( 320, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 2 )
-region = Rect2( 384, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 2 )
-region = Rect2( 448, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 2 )
-region = Rect2( 768, 0, 64, 64 )
-
-[sub_resource type="SpriteFrames" id=10]
-animations = [ {
-"frames": [ SubResource( 20 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 33 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 16.4426, 24 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 1 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 1 )
-region = Rect2( 320, 0, 64, 64 )
-
-[sub_resource type="SpriteFrames" id=18]
-animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "Sit",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 10, 16 )
 
 [node name="Grasslands" type="Node2D"]
 
 [node name="StarterMap" parent="." instance=ExtResource( 6 )]
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 608, 416 )
+[node name="Doggo" parent="." instance=ExtResource( 1 )]
+position = Vector2( 88, 560 )
+
+[node name="Doggo2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 864, 432 )
+
+[node name="Doggo3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 584, 624 )
+
+[node name="Doggo4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 440, 624 )
+
+[node name="Doggo5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 296, 624 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 280 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-frames = SubResource( 10 )
-animation = "Idle"
-frame = 2
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0, 4 )
-shape = SubResource( 11 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 4 )]
-
-[node name="Doggo" type="KinematicBody2D" parent="."]
-position = Vector2( 88, 560 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Doggo"]
-scale = Vector2( 2, 2 )
-frames = SubResource( 18 )
-animation = "Sit"
-frame = 2
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doggo"]
-shape = SubResource( 19 )
-
-[node name="Tween" type="Tween" parent="Doggo"]
