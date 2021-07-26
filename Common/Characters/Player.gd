@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://Common/Characters/Character.gd"
 
 onready var animation = $AnimatedSprite
 onready var weapon = $Weapon
@@ -23,6 +23,12 @@ func _process(delta):
 	elif Input.is_action_just_released("shoot"):
 		if weapon is AutomaticWeapon:
 			weapon.stop_shooting()
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		var	previous_aim_position = event.global_position
+		var center_position = weapon.global_position - weapon.position
+		weapon.aim_at = previous_aim_position - center_position
 
 func _physics_process(delta):
 	var horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
