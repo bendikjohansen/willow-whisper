@@ -26,9 +26,7 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		var	previous_aim_position = event.global_position
-		var center_position = weapon.global_position - weapon.position
-		weapon.aim_at = previous_aim_position - center_position
+		weapon.global_aim_position = event.global_position
 
 func _physics_process(delta):
 	var horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -38,13 +36,14 @@ func _physics_process(delta):
 	if is_on_floor():
 		if horizontal_movement != 0:
 			animation.play("Run")
-			animation.flip_h = horizontal_movement < 0
 		else:
 			animation.play("Idle")
 	elif velocity.y < 0:
 		animation.play("Jump")
 	elif velocity.y > 0:
 		animation.play("Fall")
+	if horizontal_movement != 0:
+		animation.flip_h = horizontal_movement < 0
 
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y += JUMP_FORCE

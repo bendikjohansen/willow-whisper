@@ -5,13 +5,15 @@ onready var sprite = $Sprite
 
 onready var initial_position = position
 export(float) var radius = 15
-var aim_at = Vector2.ZERO
+var global_aim_position = Vector2.ZERO
 export(PackedScene) var Projectile = preload("res://Common/Weapons/Projectile.tscn")
 
 enum WeaponType { UNKNOWN, FULLY_AUTOMATIC, SINGLE_FIRE }
 var weapon_type = WeaponType.UNKNOWN
 
 func _process(delta):
+	var center_position = global_position - position
+	var aim_at = global_aim_position - center_position
 	var aim_angle = aim_at.angle()
 	var next_angle = lerp_angle(rotation, aim_angle, 0.3)
 

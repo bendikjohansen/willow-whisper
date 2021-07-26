@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 
 func seek():
 	if rotation < 0:
-		tween.interpolate_property(self, 'rotation',  -PI / 8, 0, 1)
+		tween.interpolate_property(self, 'rotation',  -PI / 8, 0, 0.2)
 	else:
-		tween.interpolate_property(self, 'rotation', 0, -PI / 8, 1)
+		tween.interpolate_property(self, 'rotation', 0, -PI / 8, 0.2)
 	tween.start()

@@ -6,72 +6,72 @@
 [ext_resource path="res://Common/Weapons/Pistol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Common/Characters/Mobs/Vision.gd" type="Script" id=5]
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 18 )
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 614, 0, 614, 564 )
+region = Rect2( 0, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 1228, 0, 614, 564 )
+region = Rect2( 614, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 1842, 0, 614, 564 )
+region = Rect2( 1228, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 2456, 0, 614, 564 )
+region = Rect2( 1842, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 3070, 0, 614, 564 )
+region = Rect2( 2456, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 3684, 0, 614, 564 )
+region = Rect2( 3070, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 4298, 0, 614, 564 )
+region = Rect2( 3684, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 4912, 0, 614, 564 )
+region = Rect2( 4298, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 5526, 0, 614, 564 )
+region = Rect2( 4912, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 6140, 0, 614, 564 )
+region = Rect2( 5526, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 6754, 0, 614, 564 )
+region = Rect2( 6140, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 7368, 0, 614, 564 )
+region = Rect2( 6754, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 7982, 0, 614, 564 )
+region = Rect2( 7368, 0, 614, 564 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
+region = Rect2( 7982, 0, 614, 564 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
 region = Rect2( 8596, 0, 614, 564 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "Run",
 "speed": 14.0
@@ -82,14 +82,14 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 4 )
-shape = SubResource( 17 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." index="2"]
 position = Vector2( 16, 0 )
 scale = Vector2( 0.1, 0.1 )
-frames = SubResource( 16 )
+frames = SubResource( 17 )
 animation = "Run"
-frame = 4
+frame = 6
 playing = true
 
 [node name="Weapon" parent="." index="3" instance=ExtResource( 4 )]
