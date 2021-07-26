@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(int) var health = 10
 
 onready var tween = $Tween
+signal dies
 
 func hit_by_projectile():
 	tween.interpolate_property(self, "modulate", Color.white, Color.red, 0.1)
@@ -13,4 +14,8 @@ func hit_by_projectile():
 func decrease_health(hit_points):
 	health -= hit_points
 	if health <= 0:
-		queue_free()
+		emit_signal("dies")
+		on_death()
+
+func on_death():
+	queue_free()
