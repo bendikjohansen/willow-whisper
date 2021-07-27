@@ -71,6 +71,15 @@ shoot={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Entities"
+2d_render/layer_2="Projectiles"
+2d_render/layer_3="Enemies"
+2d_render/layer_4="Players"
+2d_render/layer_5="Doors"
+2d_render/layer_6="World"
+
 [physics]
 
 common/enable_pause_aware_picking=true

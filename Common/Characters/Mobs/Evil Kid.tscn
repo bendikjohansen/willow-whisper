@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Common/Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/EvilKid_Running.png" type="Texture" id=2]
-[ext_resource path="res://Common/Characters/Mobs/AimingMob.gd" type="Script" id=3]
+[ext_resource path="res://Common/Characters/Mobs/Mob.gd" type="Script" id=3]
 [ext_resource path="res://Common/Weapons/Pistol.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Common/Characters/Mobs/Vision.gd" type="Script" id=5]
+[ext_resource path="res://Common/Behaviors/AutoAim.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Common/Behaviors/DeathAnimation.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 18 )
@@ -89,16 +90,14 @@ position = Vector2( 16, 0 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 17 )
 animation = "Run"
-frame = 6
+frame = 12
 playing = true
 
 [node name="Weapon" parent="." index="3" instance=ExtResource( 4 )]
 
-[node name="Vision" type="RayCast2D" parent="." index="4"]
-enabled = true
-cast_to = Vector2( 1280, 0 )
-script = ExtResource( 5 )
+[node name="DeathAnimation" parent="." index="4" instance=ExtResource( 6 )]
 
-[node name="VisionTween" type="Tween" parent="Vision" index="0"]
+[node name="AutoAim" parent="." index="5" instance=ExtResource( 5 )]
 
-[connection signal="target_found" from="Vision" to="." method="_on_Vision_target_found"]
+[connection signal="dies" from="." to="DeathAnimation" method="_on_Character_dies"]
+[connection signal="target_found" from="AutoAim" to="." method="_on_AutoAim_target_found"]

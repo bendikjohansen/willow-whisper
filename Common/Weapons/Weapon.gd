@@ -11,7 +11,7 @@ export(PackedScene) var Projectile = preload("res://Common/Weapons/Projectile.ts
 enum WeaponType { UNKNOWN, FULLY_AUTOMATIC, SINGLE_FIRE }
 var weapon_type = WeaponType.UNKNOWN
 
-func _process(delta):
+func _process(_delta):
 	var center_position = global_position - position
 	var aim_at = global_aim_position - center_position
 	var aim_angle = aim_at.angle()

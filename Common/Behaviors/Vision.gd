@@ -1,7 +1,7 @@
 extends RayCast2D
 
 export(Resource) var target = preload("res://Common/Characters/Player.gd")
-onready var tween = $VisionTween
+onready var tween = $Tween
 
 var target_is_found = false
 
@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 		var target_was_found = target_is_found
 		target_is_found = collider is target
 		if target_was_found and not target_is_found:
-			emit_signal('target_lost')
 			tween.resume(self, 'rotation')
+			emit_signal('target_lost')
 
 		if target_is_found:
 			tween.stop(self, 'rotation')

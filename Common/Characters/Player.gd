@@ -14,7 +14,7 @@ const SHORT_HOP = 0.3
 
 var velocity = Vector2.ZERO
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("shoot"):
 		if weapon is AutomaticWeapon:
 			weapon.start_shooting()
@@ -28,7 +28,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		weapon.global_aim_position = event.global_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var horizontal_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	velocity.x += ACCELERATION * horizontal_movement
 	velocity.x = lerp(velocity.x, 0, FRICTION)
