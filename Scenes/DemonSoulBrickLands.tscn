@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Common/Characters/Mobs/Evil Kid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Common/Characters/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Common/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Common/Weapons/AK47.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Rooms/DemonSoulBrickRoom_1.tscn" type="PackedScene" id=6]
 
@@ -14,6 +15,11 @@ position = Vector2( 168, 616 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 640, 288 )
-collision_layer = 17
 
 [node name="Weapon" parent="Player" instance=ExtResource( 5 )]
+
+[node name="Door_1" parent="." instance=ExtResource( 3 )]
+position = Vector2( -16, 544 )
+
+[node name="Door_2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1248, 544 )

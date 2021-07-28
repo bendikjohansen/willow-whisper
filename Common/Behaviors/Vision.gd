@@ -1,37 +1,32 @@
 extends RayCast2D
 
-export(Resource) var target = preload("res://Common/Characters/Player.gd")
-onready var tween = $Tween
+export(Resource) var target_type = preload("res://Common/Characters/Player.gd")
 
-var target_is_found = false
+onready var targets = {}
+onready var targets_found = {}
 
 signal target_found(collision_point)
 signal target_lost
 
-func _ready():
-	seek()
+func _process(_delta):
+	for target in targets.values():
+		rotate(get_angle_to(target.global_position))
+		if is_colliding():
+			var collider = get_collider()
 
-func _process(_delta: float) -> void:
-	if is_colliding():
-		var collider = get_collider()
+			var was_target_found = targets_found[target]
+			targets_found[target] = collider is target_type
+			if targets_found[target]:
+				emit_signal("target_found", get_collision_point())
+			elif was_target_found:
+				emit_signal("target_lost")
 
-		var target_was_found = target_is_found
-		target_is_found = collider is target
-		if target_was_found and not target_is_found:
-			tween.resume(self, 'rotation')
-			emit_signal('target_lost')
+func _on_FieldOfView_body_entered(body):
+	if body is target_type and not body in targets:
+		targets[body] = body
+		targets_found[body] = false
 
-		if target_is_found:
-			tween.stop(self, 'rotation')
-			emit_signal("target_found", get_collision_point())
-
-	if not target_is_found and not tween.is_active():
-		seek()
-
-
-func seek():
-	if rotation < 0:
-		tween.interpolate_property(self, 'rotation',  -PI / 8, 0, 0.2)
-	else:
-		tween.interpolate_property(self, 'rotation', 0, -PI / 8, 0.2)
-	tween.start()
+func _on_FieldOfView_body_exited(body):
+	if body is target_type and body in targets:
+		targets.erase(body)
+		targets_found[body] = false

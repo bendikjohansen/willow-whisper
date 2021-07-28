@@ -90,7 +90,7 @@ position = Vector2( 16, 0 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 17 )
 animation = "Run"
-frame = 12
+frame = 9
 playing = true
 
 [node name="Weapon" parent="." index="3" instance=ExtResource( 4 )]
