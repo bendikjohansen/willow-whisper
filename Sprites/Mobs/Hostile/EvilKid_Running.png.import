@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EvilKid_Running.png-3dd67ba3487ce8cc331c10721b6a62c6.stex"
+path="res://.import/EvilKid_Running.png-98667a8b758a64788a918be8fa0e595c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/EvilKid_Running.png"
-dest_files=[ "res://.import/EvilKid_Running.png-3dd67ba3487ce8cc331c10721b6a62c6.stex" ]
+source_file="res://Sprites/Mobs/Hostile/EvilKid_Running.png"
+dest_files=[ "res://.import/EvilKid_Running.png-98667a8b758a64788a918be8fa0e595c.stex" ]
 
 [params]
 

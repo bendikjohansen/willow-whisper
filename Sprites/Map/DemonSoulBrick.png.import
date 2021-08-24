@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DemonSoulBrick.png-11584bfba54cc58658f52ca8b6895ef6.stex"
+path="res://.import/DemonSoulBrick.png-8988c0df36e6b615006b660d476183d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/DemonSoulBrick.png"
-dest_files=[ "res://.import/DemonSoulBrick.png-11584bfba54cc58658f52ca8b6895ef6.stex" ]
+source_file="res://Sprites/Map/DemonSoulBrick.png"
+dest_files=[ "res://.import/DemonSoulBrick.png-8988c0df36e6b615006b660d476183d5.stex" ]
 
 [params]
 

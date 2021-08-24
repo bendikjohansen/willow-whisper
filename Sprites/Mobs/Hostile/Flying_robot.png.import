@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Projectile.png-d22ee7bdb01a42362e86edc1ca2b64c8.stex"
+path="res://.import/Flying_robot.png-8e693a7975e2c32602028ec5180b3cd2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Assets/Projectile.png"
-dest_files=[ "res://.import/Projectile.png-d22ee7bdb01a42362e86edc1ca2b64c8.stex" ]
+source_file="res://Sprites/Mobs/Hostile/Flying_robot.png"
+dest_files=[ "res://.import/Flying_robot.png-8e693a7975e2c32602028ec5180b3cd2.stex" ]
 
 [params]
 

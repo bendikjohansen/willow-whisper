@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Projectile.png-d22ee7bdb01a42362e86edc1ca2b64c8.stex"
+path="res://.import/Seeker.png-9fff4af2b23eb3bf42110e36fca0314d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Assets/Projectile.png"
-dest_files=[ "res://.import/Projectile.png-d22ee7bdb01a42362e86edc1ca2b64c8.stex" ]
+source_file="res://Sprites/Mobs/Hostile/Seeker.png"
+dest_files=[ "res://.import/Seeker.png-9fff4af2b23eb3bf42110e36fca0314d.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Doggo.png-2006a2e944d2bace6c66d43772d33894.stex"
+path="res://.import/Doggo.png-c86e1ed902583830c2c9bd2673566f19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Doggo.png"
-dest_files=[ "res://.import/Doggo.png-2006a2e944d2bace6c66d43772d33894.stex" ]
+source_file="res://Sprites/Mobs/Friendly/Doggo.png"
+dest_files=[ "res://.import/Doggo.png-c86e1ed902583830c2c9bd2673566f19.stex" ]
 
 [params]
 

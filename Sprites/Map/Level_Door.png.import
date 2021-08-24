@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Level_Door.png-efe7e09d4a2e4466c46b0ef949e60ff0.stex"
+path="res://.import/Level_Door.png-ca961f8c638bc540e891c4d25edf9f1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Level_Door.png"
-dest_files=[ "res://.import/Level_Door.png-efe7e09d4a2e4466c46b0ef949e60ff0.stex" ]
+source_file="res://Sprites/Map/Level_Door.png"
+dest_files=[ "res://.import/Level_Door.png-ca961f8c638bc540e891c4d25edf9f1e.stex" ]
 
 [params]
 
