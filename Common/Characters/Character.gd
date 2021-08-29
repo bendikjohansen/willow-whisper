@@ -6,10 +6,7 @@ onready var tween = $Tween
 signal dies
 
 func hit_by_projectile():
-	tween.interpolate_property(self, "modulate", Color.white, Color.red, 0.1)
-	tween.interpolate_property(self, "modulate", Color.red, Color.white, 0.1)
-	tween.start()
-	decrease_health(1)
+	suffer_damage(1)
 
 func decrease_health(hit_points):
 	health -= hit_points
@@ -19,3 +16,9 @@ func decrease_health(hit_points):
 
 func on_death():
 	queue_free()
+
+func suffer_damage(healt_loss: int):
+	tween.interpolate_property(self, "modulate", Color.white, Color.red, 0.1)
+	tween.interpolate_property(self, "modulate", Color.red, Color.white, 0.1)
+	tween.start()
+	decrease_health(healt_loss)

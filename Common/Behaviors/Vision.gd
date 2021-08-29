@@ -17,7 +17,7 @@ func _process(_delta):
 			var was_target_found = targets_found[target]
 			targets_found[target] = collider is target_type
 			if targets_found[target]:
-				emit_signal("target_found", get_collision_point())
+				emit_signal("target_found", get_collision_point(),targets[target])
 			elif was_target_found:
 				emit_signal("target_lost")
 
