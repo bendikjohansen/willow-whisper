@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bricks_Tilemap.png-e86d949c285df8e733edea44d80bdaa0.stex"
+path="res://.import/Doggo.png-c86e1ed902583830c2c9bd2673566f19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bricks_Tilemap.png"
-dest_files=[ "res://.import/Bricks_Tilemap.png-e86d949c285df8e733edea44d80bdaa0.stex" ]
+source_file="res://Sprites/Mobs/Friendly/Doggo.png"
+dest_files=[ "res://.import/Doggo.png-c86e1ed902583830c2c9bd2673566f19.stex" ]
 
 [params]
 

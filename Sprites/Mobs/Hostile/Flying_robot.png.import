@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pistol.png-49e10968e658fbe9a4a3f3bb37029cba.stex"
+path="res://.import/Flying_robot.png-8e693a7975e2c32602028ec5180b3cd2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pistol.png"
-dest_files=[ "res://.import/Pistol.png-49e10968e658fbe9a4a3f3bb37029cba.stex" ]
+source_file="res://Sprites/Mobs/Hostile/Flying_robot.png"
+dest_files=[ "res://.import/Flying_robot.png-8e693a7975e2c32602028ec5180b3cd2.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EvilKid_Running.png-3dd67ba3487ce8cc331c10721b6a62c6.stex"
+path="res://.import/Level_Door.png-ca961f8c638bc540e891c4d25edf9f1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/EvilKid_Running.png"
-dest_files=[ "res://.import/EvilKid_Running.png-3dd67ba3487ce8cc331c10721b6a62c6.stex" ]
+source_file="res://Sprites/Map/Level_Door.png"
+dest_files=[ "res://.import/Level_Door.png-ca961f8c638bc540e891c4d25edf9f1e.stex" ]
 
 [params]
 
