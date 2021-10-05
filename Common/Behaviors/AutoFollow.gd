@@ -1,7 +1,5 @@
 extends Node2D
 
-onready var IDontKnowWhatIamDoing = "rip in puepperiños"
-
 signal target_found(collision_point)
 signal target_lost
 
