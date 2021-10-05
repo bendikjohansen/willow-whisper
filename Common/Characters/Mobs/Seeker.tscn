@@ -126,6 +126,8 @@ animations = [ {
 extents = Vector2( 22, 12 )
 
 [node name="Seeker" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 32
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
@@ -135,7 +137,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 25 )
 animation = "Idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
