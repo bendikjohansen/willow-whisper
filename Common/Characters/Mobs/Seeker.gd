@@ -3,12 +3,13 @@ extends "res://Common/Characters/character.gd"
 export(Resource) var target_type = preload("res://Common/Characters/Player.gd")
 
 const VELOCITY = 550
-const CLOSE_DISTANCE = 50
+const CLOSE_DISTANCE = 150
 const POSITION_ABOVE_PLAYER = 50
 const SPEED_TO_TOP_POSITION = 100
 const RADIANS_TO_ORDINAL_SECTORS = PI/8
 
 onready var animation = $AnimatedSprite
+onready var attackTimer = $AttackInterval
 
 var velocity = Vector2.ZERO
 var target_position = Vector2.ZERO
@@ -43,53 +44,60 @@ func _physics_process(_delta):
 	if target_position != Vector2.ZERO and is_instance_valid(target_node):
 		_move_seeker(target_direction)
 	else:
+		attackTimer.stop()
 		animation.play(SEEKER_ANIMATIONS.idle)
 		velocity = Vector2.ZERO
-
-
-func _attack_target():
-	if target_node != null and target_node.has_method("suffer_damage"):
-		target_node.suffer_damage(1)
 	
 	
 func _move_seeker(target_direction: Vector2):
 	var distance = target_direction.length()
 	if distance < CLOSE_DISTANCE:
 		position = position.move_toward(target_position, 10)
-		animation.play(SEEKER_ANIMATIONS.shock)
-		
-		if animation.frame == 3 and not has_cycled_attack:
-			has_cycled_attack = true
-			_attack_target()
-		elif animation.frame < 3 and has_cycled_attack:
-			has_cycled_attack = false
+		if attackTimer.is_stopped():
+			attack()
+			attackTimer.start()
 	else:
+		attackTimer.stop()
 		_handle_animation(target_direction)
 		velocity = move_and_slide(target_direction.normalized() * VELOCITY)
 		
 
 func _handle_animation(target_direction: Vector2):
-	var target_angle = target_direction.angle()
-	var north = -PI/2
-	var east = 0
-	var south = PI/2
-	var west = PI # and -PI
+	var sign_direction = target_direction.normalized().round()
+	var animation_name = SEEKER_ANIMATIONS.idle
 
-	# Ikke døm meg plis
-	if target_angle <= north + RADIANS_TO_ORDINAL_SECTORS and target_angle >= north - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.north)
-	elif target_angle > north + RADIANS_TO_ORDINAL_SECTORS and target_angle < east - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.north_east)
-	elif target_angle <= east + RADIANS_TO_ORDINAL_SECTORS and target_angle >= east - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.east)
-	elif target_angle > east + RADIANS_TO_ORDINAL_SECTORS and target_angle < south - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.south_east)
-	elif target_angle <= south + RADIANS_TO_ORDINAL_SECTORS and target_angle >= south - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.south)
-	elif target_angle > south + RADIANS_TO_ORDINAL_SECTORS and target_angle < west - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.south_west)
-	elif target_angle <= -(west - RADIANS_TO_ORDINAL_SECTORS) or target_angle >= west - RADIANS_TO_ORDINAL_SECTORS:
-		animation.play(SEEKER_ANIMATIONS.west)
-	elif target_angle < north - RADIANS_TO_ORDINAL_SECTORS and target_angle > -(west - RADIANS_TO_ORDINAL_SECTORS):
-		animation.play(SEEKER_ANIMATIONS.north_west)
+	if sign_direction == Vector2.UP:
+		animation_name = SEEKER_ANIMATIONS.north
+	elif sign_direction == Vector2.UP + Vector2.RIGHT:
+		animation_name = SEEKER_ANIMATIONS.north_east
+	elif sign_direction == Vector2.RIGHT:
+		animation_name = SEEKER_ANIMATIONS.east
+	elif sign_direction == Vector2.DOWN + Vector2.RIGHT:
+		animation_name = SEEKER_ANIMATIONS.south_east
+	elif sign_direction == Vector2.DOWN:
+		animation_name = SEEKER_ANIMATIONS.south
+	elif sign_direction == Vector2.DOWN + Vector2.LEFT:
+		animation_name = SEEKER_ANIMATIONS.south_west
+	elif sign_direction == Vector2.LEFT:
+		animation_name = SEEKER_ANIMATIONS.west
+	elif sign_direction == Vector2.UP + Vector2.LEFT:
+		animation_name = SEEKER_ANIMATIONS.north_west
+		
+	animation.play(animation_name)
 	
+
+func attack():
+	animation.play(SEEKER_ANIMATIONS.shock)
+
+
+func _on_AttackInterval_timeout():
+	attack()
+
+
+func _on_AnimatedSprite_animation_finished():
+	if animation.animation != SEEKER_ANIMATIONS.shock:
+		return
+		
+	if target_node != null and target_node.has_method("suffer_damage"):
+		target_node.suffer_damage(1)
+		animation.play(SEEKER_ANIMATIONS.idle)
